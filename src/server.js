@@ -3,6 +3,7 @@ import bodyParser from "body-parser"; //lấy tham số từ client gửi về
 import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./routes/web";
 import dotenv from "dotenv";
+import connectDB from "./config/connectDB";
 
 dotenv.config(); // or not import => require("dotenv").config()
 
@@ -14,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-
 
 viewEngine(app);
 initWebRoutes(app);
+
+connectDB();
 
 let port = process.env.PORT || 8080; //port === undefined => port = 8080
 
