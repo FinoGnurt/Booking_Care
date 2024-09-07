@@ -4,6 +4,7 @@ import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./routes/web";
 import dotenv from "dotenv";
 import connectDB from "./config/connectDB";
+import chalk from "chalk";
 
 dotenv.config(); // or not import => require("dotenv").config()
 
@@ -21,5 +22,5 @@ connectDB();
 let port = process.env.PORT || 8080; //port === undefined => port = 8080
 
 app.listen(port, () => {
-  console.log("Backend Nodejs is running on the port: " + port);
+  console.log(chalk.green("Backend Nodejs is running on the port: ", port));
 });
